@@ -21,7 +21,22 @@ $header_nav_menu = wp_nav_menu( [
 <header id="site-header" class="site-header">
 
 	<div class="site-branding">
-		<a href="/"><img src="<?= get_stylesheet_directory_uri(); ?>/assets/logo-header.svg" alt="logo of the company"></a>
+		<?php
+		if ( has_custom_logo() ) {
+			the_custom_logo();
+		} elseif ( $site_name ) {
+			?>
+			<div class="site-title">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr__( 'Home', 'hello-elementor' ); ?>" rel="home">
+					<?php echo esc_html( $site_name ); ?>
+				</a>
+			</div>
+			<?php if ( $tagline ) : ?>
+			<p class="site-description">
+				<?php echo esc_html( $tagline ); ?>
+			</p>
+			<?php endif; ?>
+		<?php } ?>
 	</div>
 
 	<?php if ( $header_nav_menu ) : ?>

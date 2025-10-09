@@ -9,3 +9,23 @@ Version:      1.0.0
 Text Domain:  vxm-child
 */
 
+/* CSS Custom Properties (Variables) - Mapped from Elementor */
+:root {
+  --vxm-white: var(--e-global-color-primary, #EAEAEA);
+  --vxm-gray: var(--e-global-color-secondary, #84868C);
+  --vxm-black: var(--e-global-color-text, #2E2E2E);
+  --vxm-yellow: var(--e-global-color-accent, #D3A02A);
+
+  --link-hover-color: var(--e-global-color-accent-hover);
+  --heading-font: var(--e-global-typography-primary);
+  --body-font: var(--e-global-typography-secondary);
+  --accent-font: var(--e-global-typography-accent);
+}
+
+#menu-main-menu li a {
+  font-family: var(--body-font);
+  font-weight: 400;
+  color: var(--vxm-white);
+  transition: color 0.3s ease;
+}
+

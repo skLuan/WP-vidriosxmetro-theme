@@ -11,6 +11,14 @@ function hello_child_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'hello_child_enqueue_styles');
 
+// 1.5. Add CORS headers for font files
+function add_cors_headers() {
+    if (isset($_SERVER['REQUEST_URI']) && preg_match('/\.(woff|woff2|ttf|eot)$/', $_SERVER['REQUEST_URI'])) {
+        header('Access-Control-Allow-Origin: *');
+    }
+}
+add_action('send_headers', 'add_cors_headers');
+
 // 2. Registro de Custom Post Types (CPTs)
 // CPT "productos" - COMENTADO: Ahora usamos WooCommerce ('product') para esto
 /*
