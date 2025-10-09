@@ -11,15 +11,36 @@ Text Domain:  vxm-child
 
 /* CSS Custom Properties (Variables) - Mapped from Elementor */
 :root {
-  --vxm-white: var(--e-global-color-primary, #EAEAEA);
-  --vxm-gray: var(--e-global-color-secondary, #84868C);
-  --vxm-black: var(--e-global-color-text, #2E2E2E);
-  --vxm-yellow: var(--e-global-color-accent, #D3A02A);
+  --vxm-white: var(--e-global-color-primary, #eaeaea);
+  --vxm-gray: var(--e-global-color-secondary, #84868c);
+  --vxm-black: var(--e-global-color-text, #2e2e2e);
+  --vxm-yellow: var(--e-global-color-accent, #d3a02a);
 
   --link-hover-color: var(--e-global-color-accent-hover);
   --heading-font: var(--e-global-typography-primary);
   --body-font: var(--e-global-typography-secondary);
   --accent-font: var(--e-global-typography-accent);
+}
+
+main {
+  margin-top: 79px;
+  /* Adjust based on header height */
+}
+
+#site-header {
+  padding: 16px 42px;
+  position: fixed;
+  top: 0;
+  overflow-y: visible;
+  z-index: 10;
+  width: 100%;
+}
+
+#site-header .search-container {
+  top: 100%;
+  right: 0;
+  padding: 8px 42px;
+  display: flex;
 }
 
 #menu-main-menu li a {
@@ -29,3 +50,68 @@ Text Domain:  vxm-child
   transition: color 0.3s ease;
 }
 
+/* ------------------ Footer */
+#site-footer {
+  background: linear-gradient(283deg, #fff 0%, #eaeaea 53.4%);
+  padding: 0;
+  position: relative;
+}
+
+#site-footer p {
+  margin: 0;
+  padding: 0;
+}
+
+#site-footer .social-links {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 42px;
+  padding-right: 42px;
+}
+#site-footer .footer-logo {
+  bottom: 0;
+  right: 0;
+  padding-right: 42px;
+  padding-bottom: 33px;
+  height: 70%;
+}
+
+#site-footer .social-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 0 16px;
+  margin: 0;
+}
+
+#site-footer .footer-inner {
+  padding-top: 42px;
+  padding-left: 42px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+#site-footer .site-logo {
+  max-width: 275px;
+}
+
+#site-footer .footer-copyright {
+  background: linear-gradient(283deg, #eaeaea 37.85%, #fff 91.25%);
+  color: black;
+  padding: 8px 42px;
+  font-family: var(--body-font);
+  font-weight: 300;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ------------------------------------- utilities */
+.absolute {
+  position: absolute;
+}

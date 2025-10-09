@@ -1,23 +1,27 @@
 <?php
 /**
- * Footer template for Hello Child theme.
+ * The template for displaying the footer.
  *
- * @package HelloChild
+ * Contains the body & html closing tags.
+ *
+ * @package HelloElementor
  */
-
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+	exit; // Exit if accessed directly.
 }
 
-// Hook for closing content area.
-do_action( 'elementor_hello_theme_footer' );
+if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
+	if ( hello_elementor_display_header_footer() ) {
+		if ( did_action( 'elementor/loaded' ) && hello_header_footer_experiment_active() ) {
+			get_template_part( 'template-parts/dynamic-footer' );
+		} else {
+			get_template_part( 'template-parts/footer' );
+		}
+	}
+}
 ?>
-</div><!-- #page -->
 
-<?php
-// Hook for closing body tag.
-do_action( 'elementor_hello_theme_body_close' );
-wp_footer();
-?>
+<?php wp_footer(); ?>
+
 </body>
 </html>
