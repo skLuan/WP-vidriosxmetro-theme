@@ -1,8 +1,7 @@
 *.zip
 *.env
+*.htaccess
 plugins/
-themes/
-!themes/VxM hello child theme/
 uploads/
 ai1wm-backups/
 jetpack-waf
