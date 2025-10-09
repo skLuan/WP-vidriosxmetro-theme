@@ -1,1 +1,10 @@
 *.zip
+*.env
+plugins/
+themes/
+!themes/VxM hello child theme/
+uploads/
+ai1wm-backups/
+jetpack-waf
+languages/
+wp-staging/
