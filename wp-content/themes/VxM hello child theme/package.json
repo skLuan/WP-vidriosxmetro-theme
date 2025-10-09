@@ -1,0 +1,17 @@
+{
+  "name": "vxm-hello-child-theme",
+  "version": "1.0.0",
+  "description": "VxM Hello Child Theme with Vite hot reloading",
+  "scripts": {
+    "start": "vite build --watch",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "iconify-icon": "^3.0.1"
+  }
+}

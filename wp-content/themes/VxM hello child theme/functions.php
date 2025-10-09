@@ -7,9 +7,26 @@
 // 1. Encolar estilos del child theme (para que herede del padre y agregue custom)
 function hello_child_enqueue_styles() {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style'), wp_get_theme()->get('Version'));
 }
 add_action('wp_enqueue_scripts', 'hello_child_enqueue_styles');
+
+// 1.1. Vite hot reloading for development and production build enqueue
+function enqueue_vite_scripts() {
+    $manifestPath = get_stylesheet_directory() . '/assets/build/.vite/manifest.json';
+
+    // Check if the manifest file exists and is readable before using it
+    if (file_exists($manifestPath)) {
+        $manifest = json_decode(file_get_contents($manifestPath), true);
+        
+        // Check if the file is in the manifest before enqueuing
+        if (isset($manifest['src/main.js'])) {
+            wp_enqueue_script('vxm-script', get_stylesheet_directory_uri() . '/assets/build/' . $manifest['src/main.js']['file'], array(), null, true);
+            // Enqueue the CSS file
+            wp_enqueue_style('vxm-style', get_stylesheet_directory_uri() . '/assets/build/' . $manifest['src/main.js']['css'][0]);
+        }
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_vite_scripts');
 
 // 1.5. Add CORS headers for font files
 function add_cors_headers() {

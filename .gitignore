@@ -7,3 +7,5 @@ ai1wm-backups/
 jetpack-waf
 languages/
 wp-staging/
+node_modules/
+**/build/
