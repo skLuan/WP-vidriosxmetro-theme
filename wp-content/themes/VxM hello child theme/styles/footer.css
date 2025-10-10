@@ -1,0 +1,124 @@
+/* Footer Styles */
+
+#site-footer {
+  background: linear-gradient(283deg, #fff 0%, #eaeaea 53.4%);
+  padding: 0;
+  position: relative;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .social-links {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 42px;
+    padding-right: 42px;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      padding: 0 16px;
+      margin: 0;
+
+      a {
+        color: var(--vxm-black);
+        opacity: 0.6;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: black;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .footer-logo {
+    bottom: 0;
+    right: 0;
+    padding-right: var(--padding-x-general);
+    padding-bottom: 33px;
+    height: 70%;
+  }
+
+  .footer-inner {
+    padding-top: 42px;
+    padding-left: var(--padding-x-general);
+    padding-bottom: 42px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .site-logo {
+    max-width: 275px;
+  }
+
+  .footer-copyright {
+    background: linear-gradient(283deg, #eaeaea 37.85%, #fff 91.25%);
+    color: black;
+    padding: 8px var(--padding-x-general);
+    font-family: var(--body-font);
+    font-weight: 300;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+/* Footer menu styles */
+#menu-footer {
+  padding-top: 24px;
+
+  .sub-menu {
+    display: block !important;
+    position: relative !important;
+    background: none !important;
+    top: unset !important;
+    left: unset !important;
+    right: unset !important;
+    bottom: unset !important;
+  }
+
+  li::after {
+    display: none !important;
+  }
+
+  .menu-item-has-children > a {
+    color: var(--vxm-black);
+    font-size: 1.125rem;
+  }
+
+  .sub-menu li {
+    display: block;
+  }
+
+  .sub-menu a {
+    color: var(--vxm-black);
+    opacity: 0.6;
+    font-size: 1rem;
+  }
+
+  li {
+    flex-direction: column;
+
+    a {
+      height: fit-content;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  #menu-footer .menu-item-has-children > a {
+    font-weight: 600;
+    padding-top: 1rem;
+  }
+}

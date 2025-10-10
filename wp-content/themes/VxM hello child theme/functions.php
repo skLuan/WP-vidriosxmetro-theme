@@ -21,8 +21,12 @@ function enqueue_vite_scripts() {
         // Check if the file is in the manifest before enqueuing
         if (isset($manifest['src/main.js'])) {
             wp_enqueue_script('vxm-script', get_stylesheet_directory_uri() . '/assets/build/' . $manifest['src/main.js']['file'], array(), null, true);
-            // Enqueue the CSS file
-            wp_enqueue_style('vxm-style', get_stylesheet_directory_uri() . '/assets/build/' . $manifest['src/main.js']['css'][0]);
+            // Enqueue the CSS files (handle multiple)
+            if (isset($manifest['src/main.js']['css']) && is_array($manifest['src/main.js']['css'])) {
+                foreach ($manifest['src/main.js']['css'] as $index => $css_file) {
+                    wp_enqueue_style('vxm-style-' . $index, get_stylesheet_directory_uri() . '/assets/build/' . $css_file);
+                }
+            }
         }
     }
 }
