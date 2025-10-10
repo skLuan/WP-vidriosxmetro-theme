@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --padding-x-general-lg: 44px;
+  --padding-x-general-sm: 16px;
+  --padding-x-general: var(--padding-x-general-lg);
+  --font-vxm-size-14: 0.875rem;
+  --font-vxm-size-16: 1rem;
+  --font-vxm-size-18: 1.125rem;
+  --font-vxm-size-24: 1.5rem;
+  --link-hover-color: var(--e-global-color-accent-hover);
+  --heading-font: var(--e-global-typography-primary);
+  --body-font: var(--e-global-typography-secondary);
+  --accent-font: var(--e-global-typography-accent);
+}
+
+@theme {
+  --color-white-vxm: var(--e-global-color-primary, #eaeaea);
+  --color-gray-vxm: var(--e-global-color-secondary, #84868c);
+  --color-black-vxm: var(--e-global-color-text, #2e2e2e);
+  --color-yellow-vxm: var(--e-global-color-accent, #d3a02a);
+
+}
+
+/* WooCommerce Product Categories Grid */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 52px;
+  margin: 20px auto;
+  max-width: 80%;
+
+  .cat-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 283px;
+    height: 300px;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .cat-image {
+      picture {
+        display: block;
+
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+    }
+
+    .cat-name {
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 18px;
+      text-align: center;
+
+      span {
+        font-weight: bold;
+        font-size: var(--font-vxm-size-18);
+      }
+    }
+  }
+}
+.slide-1 {
+  width: 100% !important;
+}
+.slide-2 {
+  width: 62% !important;
+}
+.slide-3 {
+  width: 105% !important;
+}
+
+@media (max-width: 768px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --padding-x-general: var(--padding-x-general-sm);
+  }
+}

@@ -12,14 +12,6 @@ export default defineConfig({
     },
   },
   plugins: [
-    tailwindcss(),
-    {
-      name: 'php',
-      handleHotUpdate({ file, server }) {
-        if (file.endsWith('.php')) {
-          server.ws.send({ type: 'full-reload' });
-        }
-      },
-    },
-  ],
+    tailwindcss()
+    ],
 });
