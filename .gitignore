@@ -21,3 +21,5 @@ nginx.conf
 php.ini
 wp-config.php
 *bfg-report
+mu-plugins/
+themes/twenty*/
