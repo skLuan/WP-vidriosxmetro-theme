@@ -85,10 +85,20 @@ main {
   padding: 0 16px;
   margin: 0;
 }
+#site-footer .social-links a {
+  color: var(--vxm-black);
+  opacity: 0.6;
+  transition: color 0.3s ease;
+}
+#site-footer .social-links a:hover {
+  color: black;
+  opacity: 1;
+}
 
 #site-footer .footer-inner {
   padding-top: 42px;
   padding-left: 42px;
+  padding-bottom: 42px;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -107,6 +117,7 @@ main {
   font-size: 14px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   gap: 16px;
 }
@@ -114,4 +125,47 @@ main {
 /* ------------------------------------- utilities */
 .absolute {
   position: absolute;
+}
+
+#menu-footer {
+  padding-top: 24px;
+}
+/* Footer menu sub-menus always visible */
+#menu-footer .sub-menu {
+  display: block !important;
+  position: relative !important;
+  background: none !important;
+  top: unset !important;
+  left: unset !important;
+  right: unset !important;
+  bottom: unset !important;
+}
+#menu-footer li::after {
+  display: none !important;
+}
+#menu-footer .menu-item-has-children > a {
+  color: var(--vxm-black);
+  font-size: 1.125rem;
+}
+#menu-footer .sub-menu li {
+  display: block;
+}
+#menu-footer .sub-menu a {
+  color: var(--vxm-black);
+  opacity: 0.6;
+  font-size: 1rem;
+  
+}
+#menu-footer li {
+  flex-direction: column;
+}
+#menu-footer li a {
+  height: fit-content;
+}
+
+@media (max-width: 576px) {
+  #menu-footer .menu-item-has-children > a {
+    font-weight: 600;
+    padding-top: 1rem;
+  }
 }
