@@ -42,7 +42,7 @@ $product_categories = get_terms(array(
 	'number' => 9, // Limit to 9 for 3x3 grid
 ));
 ?>
-<section id="categorias" class="categories py-32 px-4 lg:px-11 relative overflow-hidden">
+<section id="categorias" class="categories py-32 px-4 lg:px-11 relative overflow-hidden lg:max-w-10/12 mx-auto">
 	<figure class="absolute top-4 -left-5">
 		<picture><img src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/vector-bg.svg'); ?>" alt=""></picture>
 	</figure>
@@ -110,8 +110,8 @@ $product_categories = get_terms(array(
 		<div class="swiper-scrollbar"></div>
 	</div>
 </section>
-<section id="servicios" class="">
-
+<section id="servicios" class="min-h-[70dvh] flex">
+			<h2 class="m-auto h-fit">Servicios</h2>
 </section>
 </section>
 <section id="nuestros-clientes" class="">

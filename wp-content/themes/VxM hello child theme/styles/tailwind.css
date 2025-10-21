@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 :root {
   --padding-x-general-lg: 44px;
   --padding-x-general-sm: 16px;
@@ -17,6 +18,7 @@
 @theme {
   --color-white-vxm: var(--e-global-color-primary, #eaeaea);
   --color-gray-vxm: var(--e-global-color-secondary, #84868c);
+  --color-gray-vxm-50: rgba(46, 46, 46, 0.50);
   --color-black-vxm: var(--e-global-color-text, #2e2e2e);
   --color-yellow-vxm: var(--e-global-color-accent, #d3a02a);
 
@@ -83,6 +85,10 @@
 }
 .slide-3 {
   width: 105% !important;
+}
+
+#servicios {
+  background: linear-gradient(180deg, #EAEAEA 0%, #848484 100%);
 }
 
 @media (max-width: 768px) {
