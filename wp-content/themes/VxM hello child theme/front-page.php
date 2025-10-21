@@ -84,18 +84,18 @@ $product_categories = get_terms(array(
 		<div class="swiper-wrapper">
 			<!-- Slides -->
 			<div class="swiper-slide slide-1">
-				<figure>
-					<picture><img src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/slides/slide1.jpg'); ?>" alt=""></picture>
+				<figure class="min-h-[55vh] bg-black-vxm md:min-h-auto">
+					<picture><img width="100%" src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/slides/slide1.jpg'); ?>" alt=""></picture>
 				</figure>
 			</div>
 			<div class="swiper-slide slide-2">
-				<figure>
-					<picture><img src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/slides/slide2.jpg'); ?>" alt=""></picture>
+				<figure class="min-h-[55vh] bg-black-vxm">
+					<picture><img width="100%" src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/slides/slide2.jpg'); ?>" alt=""></picture>
 				</figure>
 			</div>
 			<div class="swiper-slide slide-3">
-				<figure>
-					<picture><img src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/slides/slide3.jpg'); ?>" alt=""></picture>
+				<figure class="min-h-[55vh] bg-black-vxm">
+					<picture><img width="100%" src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/slides/slide3.jpg'); ?>" alt=""></picture>
 				</figure>
 			</div>
 		</div>
@@ -111,7 +111,8 @@ $product_categories = get_terms(array(
 	</div>
 </section>
 <section id="servicios" class="min-h-[70dvh] flex">
-			<h2 class="m-auto h-fit">Servicios</h2>
+
+	<h2 class="m-auto h-fit">Servicios</h2>
 </section>
 </section>
 <section id="nuestros-clientes" class="">

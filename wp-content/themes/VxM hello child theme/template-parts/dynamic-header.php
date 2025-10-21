@@ -27,7 +27,7 @@ $header_nav_menu = wp_nav_menu($menu_args);
 $header_mobile_nav_menu = wp_nav_menu($menu_args); // The same menu but separate call to avoid duplicate ID attributes.
 ?>
 <header id="site-header" class="site-header dynamic-header <?php echo esc_attr($header_class); ?>">
-	<div class="header-inner">
+	<div class="header-inner relative lg:!max-w-10/12 mx-auto">
 		<div class="site-branding">
 			<a href="/"><img src="<?= get_stylesheet_directory_uri(); ?>/assets/logo-header.svg" alt="logo of the company"></a>
 		</div>
@@ -53,11 +53,11 @@ $header_mobile_nav_menu = wp_nav_menu($menu_args); // The same menu but separate
 				?>
 			</nav>
 		<?php endif; ?>
-	</div>
-	<div class="search-container absolute">
-		<?php get_search_form(); ?>
-		<a href="#">
-			<iconify-icon icon="logos:whatsapp-icon" style="margin-left: 16px;" width="44" height="44"></iconify-icon>
-		</a>
+		<div class="search-container absolute translate-y-4">
+			<?php get_search_form(); ?>
+			<a href="#">
+				<iconify-icon icon="logos:whatsapp-icon" style="margin-left: 16px;" width="44" height="44"></iconify-icon>
+			</a>
+		</div>
 	</div>
 </header>

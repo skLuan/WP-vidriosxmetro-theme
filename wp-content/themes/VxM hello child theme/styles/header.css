@@ -14,11 +14,18 @@
     padding: 8px 0;
     display: flex;
     
+    .search-form {
+      position: relative;
+    }
     .search-field {
       background: var(--color-white-vxm);
       border-radius: 1000px;
       border: 1px solid var(--color-gray-vxm-50);
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.10), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .search-submit{
+      position: absolute;
+      right: 0;
     }
   }
 
