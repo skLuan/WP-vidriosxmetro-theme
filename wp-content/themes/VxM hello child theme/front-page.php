@@ -110,9 +110,26 @@ $product_categories = get_terms(array(
 		<div class="swiper-scrollbar"></div>
 	</div>
 </section>
-<section id="servicios" class="min-h-[70dvh] flex">
-
-	<h2 class="m-auto h-fit">Servicios</h2>
+<section id="servicios" class="min-h-[80dvh] flex relative">
+	<div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+		<h2 class="m-auto !text-[250px] h-fit opacity-35">Servicios</h2>
+	</div>
+	<article class=" md:max-w-8/12 mx-auto md:w-1/2">
+		<div class="p-6 services-card">
+			<h4 class="text-center !font-bold">Diseño</h4>
+			<p>Diseñamos soluciones en vidrio y aluminio,
+				equilibrando estética y funcionalidad. Fachadas y ventanas para residencias
+				y comercios.</p>
+		</div>
+		<div class="p-6 services-card">
+			<h4 class="text-center !font-bold">Fabricación</h4>
+			<p>Fabricamos vidrio templado y aluminio con precisión. Cerramientos y puertas para residencias e instituciones.</p>
+		</div>
+		<div class="p-6 services-card">
+			<h4 class="text-center !font-bold">Instalación</h4>
+			<p>Instalamos ventanas y fachadas, garantizando seguridad y cumplimiento. Resultados confiables.</p>
+		</div>
+	</article>
 </section>
 </section>
 <section id="nuestros-clientes" class="">

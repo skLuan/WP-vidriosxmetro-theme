@@ -1,4 +1,6 @@
 <?php
+include_once get_stylesheet_directory() . '/inc/cpt-and-taxonomies.php';
+
 /**
  * Functions.php del Child Theme de Hello Elementor
  * Versión consolidada y actualizada: Incluye WooCommerce para productos y taxonomías bidireccionales.
@@ -41,73 +43,6 @@ function add_cors_headers() {
 }
 add_action('send_headers', 'add_cors_headers');
 
-// 2. Registro de Custom Post Types (CPTs)
-// CPT "productos" - COMENTADO: Ahora usamos WooCommerce ('product') para esto
-/*
-function registrar_cpt_productos() {
-    $args = array(
-        'public' => true,
-        'label' => 'Productos',
-        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
-        'rewrite' => array('slug' => 'productos'),
-        'has_archive' => true,
-    );
-    register_post_type('productos', $args);
-}
-add_action('init', 'registrar_cpt_productos');
-*/
-
-// CPT "proyectos" (para portafolio)
-function registrar_cpt_proyectos() {
-    $args = array(
-        'public' => true,
-        'label' => 'Proyectos',
-        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
-        'rewrite' => array('slug' => 'proyectos'),
-        'has_archive' => true,
-    );
-    register_post_type('proyectos', $args);
-}
-add_action('init', 'registrar_cpt_proyectos');
-
-// 3. Registro de Taxonomías compartidas (jerárquicas, como acordamos)
-// Taxonomía "sector" (ej. Residencial > Hogar, compartida con 'product' y 'proyectos')
-function registrar_taxonomia_sector() {
-    $labels = array(
-        'name' => 'Sectores',
-        'singular_name' => 'Sector',
-        'menu_name' => 'Sectores',
-    );
-    $args = array(
-        'hierarchical' => true,
-        'labels' => $labels,
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'query_var' => true,
-        'rewrite' => array('slug' => 'sector'),
-    );
-    register_taxonomy('sector', array('product', 'proyectos'), $args); // Actualizado: Incluye 'product' para WooCommerce
-}
-add_action('init', 'registrar_taxonomia_sector');
-
-// Taxonomía "tipo_producto" (ej. Vidrios > Vidrio de seguridad templado, compartida con 'product' y 'proyectos')
-function registrar_taxonomia_tipo_producto() {
-    $labels = array(
-        'name' => 'Tipos de Producto',
-        'singular_name' => 'Tipo de Producto',
-        'menu_name' => 'Tipos de Producto',
-    );
-    $args = array(
-        'hierarchical' => true,
-        'labels' => $labels,
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'query_var' => true,
-        'rewrite' => array('slug' => 'tipo-producto'),
-    );
-    register_taxonomy('tipo_producto', array('product', 'proyectos'), $args); // Actualizado: Incluye 'product'
-}
-add_action('init', 'registrar_taxonomia_tipo_producto');
 
 // 4. Opcional: Desactivar carrito y checkout de WooCommerce (para modo vitrina)
 function desactivar_woocommerce_vitrina() {
@@ -116,31 +51,6 @@ function desactivar_woocommerce_vitrina() {
     remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
 }
 add_action('init', 'desactivar_woocommerce_vitrina');
-
-// 5. Taxonomía "productos_usados" para proyectos (como etiquetas, ya existente)
-function registrar_taxonomia_productos_usados() {
-    $labels = array(
-        'name' => 'Productos usados en el proyecto',
-        'singular_name' => 'Producto usado',
-        'menu_name' => 'Productos usados',
-        'search_items' => 'Buscar productos usados',
-        'all_items' => 'Todos los productos usados',
-        'edit_item' => 'Editar producto usado',
-        'update_item' => 'Actualizar producto usado',
-        'add_new_item' => 'Agregar nuevo producto usado',
-        'new_item_name' => 'Nombre del nuevo producto usado',
-    );
-    $args = array(
-        'hierarchical' => false, // No jerárquica, como etiquetas
-        'labels' => $labels,
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'query_var' => true,
-        'rewrite' => array('slug' => 'productos-usados'),
-    );
-    register_taxonomy('productos_usados', array('proyectos'), $args);
-}
-add_action('init', 'registrar_taxonomia_productos_usados');
 
 // Hook para poblar automáticamente términos basados en productos WooCommerce ('product')
 function sincronizar_productos_a_etiquetas($post_id) {
@@ -177,31 +87,6 @@ function mostrar_productos_usados_en_proyecto() {
     }
 }
 // add_shortcode('productos_usados', 'mostrar_productos_usados_en_proyecto'); // Descomenta para shortcode
-
-// 6. NUEVA: Taxonomía "proyectos_asociados" para productos WooCommerce (simétrica, como etiquetas)
-function registrar_taxonomia_proyectos_asociados() {
-    $labels = array(
-        'name' => 'Proyectos donde se usa este producto',
-        'singular_name' => 'Proyecto asociado',
-        'menu_name' => 'Proyectos asociados',
-        'search_items' => 'Buscar proyectos asociados',
-        'all_items' => 'Todos los proyectos asociados',
-        'edit_item' => 'Editar proyecto asociado',
-        'update_item' => 'Actualizar proyecto asociado',
-        'add_new_item' => 'Agregar nuevo proyecto asociado',
-        'new_item_name' => 'Nombre del nuevo proyecto asociado',
-    );
-    $args = array(
-        'hierarchical' => false, // No jerárquica, como etiquetas
-        'labels' => $labels,
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'query_var' => true,
-        'rewrite' => array('slug' => 'proyectos-asociados'),
-    );
-    register_taxonomy('proyectos_asociados', array('product'), $args); // Asociada solo a 'product' (WooCommerce)
-}
-add_action('init', 'registrar_taxonomia_proyectos_asociados');
 
 // Hook para poblar automáticamente términos basados en proyectos existentes
 // (Crea un término en "proyectos_asociados" cuando se publica/edita un proyecto)
