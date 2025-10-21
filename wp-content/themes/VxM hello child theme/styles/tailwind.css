@@ -17,10 +17,12 @@
 
 @theme {
   --color-white-vxm: var(--e-global-color-primary, #eaeaea);
+  --color-white-vxm-5: rgba(234, 234, 234, 0.05);
   --color-gray-vxm: var(--e-global-color-secondary, #84868c);
   --color-gray-vxm-50: rgba(46, 46, 46, 0.50);
   --color-black-vxm: var(--e-global-color-text, #2e2e2e);
   --color-yellow-vxm: var(--e-global-color-accent, #d3a02a);
+  --color-yellow-vxm-30: rgba(211, 160, 42, 0.30);
 
 }
 
