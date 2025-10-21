@@ -3,6 +3,7 @@ import '../styles/style-index.css';
 import "iconify-icon";
 import Swiper from 'swiper/bundle';  
 import 'swiper/css/bundle';
+import './acordeon'
 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
@@ -19,4 +20,6 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.swiper-button-prev',
   },
 });
+
+
 
