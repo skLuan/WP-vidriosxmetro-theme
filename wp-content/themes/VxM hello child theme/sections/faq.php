@@ -67,7 +67,7 @@
                     'order' => 'DESC',
                 ));
 
-                if ($faq_query->have_posts()) {
+                if ($faq_query->have_posts()) { 
                     ?>
                     <div class="cat-faq-container">
                         <h3 class="!text-white-vxm">Preguntas Frecuentes</h3>
@@ -76,12 +76,12 @@
                             while ($faq_query->have_posts()) :
                                 $faq_query->the_post();
                             ?>
-                                <div class="faq-acordeon">
+                                <div class="faq-acordeon mb-6">
                                     <div class="faq-touch transition-all flex flex-row gap-3 border-b border-yellow-vxm-30">
-                                        <iconify-icon class="!text-yellow-vxm" icon="iconamoon:arrow-down-2" width="24" height="24"></iconify-icon>
+                                        <iconify-icon class="!text-yellow-vxm transition-all" icon="iconamoon:arrow-down-2" width="24" height="24"></iconify-icon>
                                         <p class="text-white-vxm !mb-1"><?php the_title(); ?></p>
                                     </div>
-                                    <div class="text-white-vxm pt-2 transition-all mb-8">
+                                    <div class="text-white-vxm pt-2 transition-all">
                                         <?php the_content(); ?>
                                     </div>
                                 </div>

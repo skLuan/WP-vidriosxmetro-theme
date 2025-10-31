@@ -42,7 +42,7 @@ $product_categories = get_terms(array(
 	'number' => 9, // Limit to 9 for 3x3 grid
 ));
 ?>
-<section id="categorias" class="categories py-32 px-4 lg:px-11 relative overflow-hidden lg:max-w-10/12 mx-auto">
+<section id="categorias" class="categories py-32 px-4 lg:px-11 lg:max-w-10/12 mx-auto relative overflow-hidden ">
 	<figure class="absolute top-4 -left-5">
 		<picture><img src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/vector-bg.svg'); ?>" alt=""></picture>
 	</figure>
@@ -79,7 +79,7 @@ $product_categories = get_terms(array(
 </section>
 <section id="nuestraSeccion" class="">
 	<!-- Slider main container -->
-	<div class="swiper">
+	<div class="swiper swiper-banner">
 		<!-- Additional required wrapper -->
 		<div class="swiper-wrapper">
 			<!-- Slides -->
@@ -100,7 +100,7 @@ $product_categories = get_terms(array(
 			</div>
 		</div>
 		<!-- If we need pagination -->
-		<div class="swiper-pagination"></div>
+		<div class="swiper-pagination-banner"></div>
 
 		<!-- If we need navigation buttons -->
 		<div class="swiper-button-prev"></div>
@@ -131,10 +131,96 @@ $product_categories = get_terms(array(
 		</div>
 	</article>
 </section>
-</section>
-<section id="nuestros-clientes" class="">
+<section id="nuestros-clientes" class="py-32 overflow-hidden" style="background: linear-gradient(105deg, #FFF 0.34%, #EAEAEA 59.78%)">
+	<div class="conteiner px-4 lg:max-w-10/12 mx-auto">
+		<h2>Nuestros clientes</h2>
+		<article id="Testimonios" class="relative">
+			<div class="vxm-google-testimonies absolute right-0 top-0 bg-white rounded-lg shadow-md p-4">
+				<div class="info flex flex-row gap-2 items-center justify-center">
+					<h4>4.5</h4>
+					<div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+				</div>
+				<span class="block">Google</span>
+				<span class="block text-blue-500 text-sm">Opiniones de nuestros clientes</span>
+				<a href="https://search.google.com/local/writereview?placeid=ChIJUTALTGKmMI4R8TjeVQQbSfE">Escribe una reseña en Google</a>
+			</div>
+			<div class="swiper swiper-testimonios md:w-8/12 !mx-0">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<?php get_template_part('template-parts/card-text'); ?>
+					</div>
+					<div class="swiper-slide">
+						<?php get_template_part('template-parts/card-text'); ?>
 
+					</div>
+					<div class="swiper-slide">
+						<?php get_template_part('template-parts/card-text'); ?>
+
+					</div>
+				</div>
+			</div>
+			<!-- If we need pagination -->
+			<div class="swiper-pagination-testimonios"></div>
+			<div class="cliente-satisfechos mt-12">
+				<h3>Clientes Satisfechos</h3>
+				<div class="clientes-satisfechos__content flex flex-row justify-around">
+					<div class="clientes-satisfechos__content__item flex flex-row gap-3">
+						<h4>100+</h4>
+						<p class="!mt-auto">Clientes</p>
+					</div>
+					<div class="clientes-satisfechos__content__item flex flex-row gap-3">
+						<h4>200+</h4>
+						<p class="!mt-auto">Proyectos</p>
+					</div>
+					<div class="clientes-satisfechos__content__item flex flex-row gap-3">
+						<h4>25+</h4>
+						<p class="!mt-auto">Años de experiencia</p>
+					</div>
+				</div>
+		</article>
+	</div>
+	<div class="clientes-conteiner mt-6 px-4 overflow-visible">
+		<div class="swiper swiper-clients">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+				<div class="swiper-slide !w-fit">
+					<?php get_template_part('template-parts/card-image'); ?>
+				</div>
+			</div>
+		</div>
 </section><?php
-	get_template_part('sections/faq');
-	endif; // Closing the if (!empty($product_categories) && !is_wp_error($product_categories)) :
-	get_footer();
+			get_template_part('sections/faq');
+		endif; // Closing the if (!empty($product_categories) && !is_wp_error($product_categories)) :
+		get_footer();

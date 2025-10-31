@@ -91,6 +91,22 @@
   background: linear-gradient(180deg, #EAEAEA 0%, #848484 100%);
 }
 
+/* Accordion animations */
+.accordion-slide {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transform-origin: top center;
+}
+
+.accordion-slide.slide-out {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.accordion-slide.slide-in {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 @media (max-width: 576px) {
   :root {
     --padding-x-general: var(--padding-x-general-sm);
