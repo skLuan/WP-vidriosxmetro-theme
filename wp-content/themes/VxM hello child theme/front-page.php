@@ -146,17 +146,45 @@ $product_categories = get_terms(array(
 			</div>
 			<div class="swiper swiper-testimonios md:w-8/12 !mx-0">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<?php get_template_part('template-parts/card-text'); ?>
-					</div>
-					<div class="swiper-slide">
-						<?php get_template_part('template-parts/card-text'); ?>
-
-					</div>
-					<div class="swiper-slide">
-						<?php get_template_part('template-parts/card-text'); ?>
-
-					</div>
+					<?php
+					// Query all published testimonies
+					$testimonies_query = new WP_Query(array(
+						'post_type' => 'testimonies',
+						'posts_per_page' => -1,
+						'orderby' => 'date',
+						'order' => 'DESC',
+						'post_status' => 'publish',
+					));
+	
+					if ($testimonies_query->have_posts()) :
+						while ($testimonies_query->have_posts()) : $testimonies_query->the_post();
+							$testimony_data = array(
+								'author_name' => get_the_title(),
+								'quote_text' => get_the_content(),
+								'author_position' => get_post_meta(get_the_ID(), 'author_position', true),
+							);
+							?>
+							<div class="swiper-slide">
+								<?php get_template_part('template-parts/card-text', null, array('args' => $testimony_data)); ?>
+							</div>
+							<?php
+						endwhile;
+						wp_reset_postdata();
+					else :
+						// Fallback: three hardcoded slides
+						?>
+						<div class="swiper-slide">
+							<?php get_template_part('template-parts/card-text'); ?>
+						</div>
+						<div class="swiper-slide">
+							<?php get_template_part('template-parts/card-text'); ?>
+						</div>
+						<div class="swiper-slide">
+							<?php get_template_part('template-parts/card-text'); ?>
+						</div>
+						<?php
+					endif;
+					?>
 				</div>
 			</div>
 			<!-- If we need pagination -->
@@ -182,42 +210,45 @@ $product_categories = get_terms(array(
 	<div class="clientes-conteiner mt-6 px-4 overflow-visible">
 		<div class="swiper swiper-clients">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
-				<div class="swiper-slide !w-fit">
-					<?php get_template_part('template-parts/card-image'); ?>
-				</div>
+				<?php
+				// Query all published clients
+				$clients_query = new WP_Query(array(
+					'post_type' => 'clients',
+					'posts_per_page' => -1,
+					'orderby' => 'date',
+					'order' => 'DESC',
+					'post_status' => 'publish',
+				));
+	
+				if ($clients_query->have_posts()) :
+					while ($clients_query->have_posts()) : $clients_query->the_post();
+						$image_url = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+						$client_data = array(
+							'client_name' => get_the_title(),
+							'logo_image_url' => $image_url ? $image_url : esc_url(get_stylesheet_directory_uri() . '/assets/clientes/clientes-satisfechos.jpg'),
+						);
+						?>
+						<div class="swiper-slide !w-fit">
+							<?php get_template_part('template-parts/card-image', null, array('args' => $client_data)); ?>
+						</div>
+						<?php
+					endwhile;
+					wp_reset_postdata();
+				else :
+					// Fallback: 12 placeholder slides with dummy data
+					for ($i = 1; $i <= 12; $i++) :
+						$placeholder_data = array(
+							'client_name' => 'Client ' . $i,
+							'logo_image_url' => esc_url(get_stylesheet_directory_uri() . '/assets/clientes/clientes-satisfechos.jpg'),
+						);
+						?>
+						<div class="swiper-slide !w-fit">
+							<?php get_template_part('template-parts/card-image', null, array('args' => $placeholder_data)); ?>
+						</div>
+						<?php
+					endfor;
+				endif;
+				?>
 			</div>
 		</div>
 </section><?php

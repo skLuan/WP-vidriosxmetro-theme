@@ -41,7 +41,6 @@ const swiperClients = new Swiper('.swiper-clients', {
   autoplay: {
     delay: 2500,
   },
-  centeredSlides: true,
 
   // pagination: {
   //   el: '.swiper-pagination-testimonios',
