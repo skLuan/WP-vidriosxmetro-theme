@@ -214,3 +214,93 @@ function registrar_taxonomia_etiquetas_preguntas() {
     register_taxonomy('etiquetas_preguntas', array('preguntas_frecuentes'), $args);
 }
 add_action('init', 'registrar_taxonomia_etiquetas_preguntas');
+
+// CPT "testimonies" (para testimonios de clientes)
+function registrar_cpt_testimonies() {
+	$labels = array(
+		'name' => 'Testimonies',
+		'singular_name' => 'Testimony',
+		'menu_name' => 'Testimonies',
+		'name_admin_bar' => 'Testimony',
+		'add_new' => 'Add New',
+		'add_new_item' => 'Add New Testimony',
+		'new_item' => 'New Testimony',
+		'edit_item' => 'Edit Testimony',
+		'view_item' => 'View Testimony',
+		'all_items' => 'All Testimonies',
+		'search_items' => 'Search Testimonies',
+		'parent_item_colon' => 'Parent Testimony:',
+		'not_found' => 'No testimonies found.',
+		'not_found_in_trash' => 'No testimonies found in trash.',
+		'archives' => 'Testimony Archives',
+		'insert_into_item' => 'Insert into testimony',
+		'uploaded_to_this_item' => 'Uploaded to this testimony',
+		'filter_items_list' => 'Filter testimonies list',
+		'items_list_navigation' => 'Testimonies list navigation',
+		'items_list' => 'Testimonies list',
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'testimonies'),
+		'capability_type' => 'post',
+		'has_archive' => true,
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title', 'editor', 'custom-fields'),
+		'show_in_rest' => true,
+	);
+
+	register_post_type('testimonies', $args);
+}
+add_action('init', 'registrar_cpt_testimonies');
+
+// CPT "clients" (para clientes con logos)
+function registrar_cpt_clients() {
+	$labels = array(
+		'name' => 'Clients',
+		'singular_name' => 'Client',
+		'menu_name' => 'Clients',
+		'name_admin_bar' => 'Client',
+		'add_new' => 'Add New',
+		'add_new_item' => 'Add New Client',
+		'new_item' => 'New Client',
+		'edit_item' => 'Edit Client',
+		'view_item' => 'View Client',
+		'all_items' => 'All Clients',
+		'search_items' => 'Search Clients',
+		'parent_item_colon' => 'Parent Client:',
+		'not_found' => 'No clients found.',
+		'not_found_in_trash' => 'No clients found in trash.',
+		'archives' => 'Client Archives',
+		'insert_into_item' => 'Insert into client',
+		'uploaded_to_this_item' => 'Uploaded to this client',
+		'filter_items_list' => 'Filter clients list',
+		'items_list_navigation' => 'Clients list navigation',
+		'items_list' => 'Clients list',
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'clients'),
+		'capability_type' => 'post',
+		'has_archive' => true,
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title', 'thumbnail', 'custom-fields'),
+		'show_in_rest' => true,
+	);
+
+	register_post_type('clients', $args);
+}
+add_action('init', 'registrar_cpt_clients');
