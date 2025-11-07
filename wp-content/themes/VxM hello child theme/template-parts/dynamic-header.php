@@ -54,7 +54,7 @@ $header_mobile_nav_menu = wp_nav_menu($menu_args); // The same menu but separate
 			</nav>
 		<?php endif; ?>
 		<div class="search-container absolute translate-y-4">
-			<?php get_search_form(); ?>
+			<?php get_product_search_form(); ?>
 			<a href="#">
 				<iconify-icon icon="logos:whatsapp-icon" style="margin-left: 16px;" width="44" height="44"></iconify-icon>
 			</a>

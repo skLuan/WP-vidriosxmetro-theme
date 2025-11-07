@@ -1,12 +1,12 @@
 <section id="preguntas-frecuentes" class="py-12" style="background: radial-gradient(126.84% 108.18% at 82.43% 74.87%, #2E2E2E 41.62%, #000 100%);">
-    <div class="inner max-w-10/12 mx-auto px-4">
+    <div class="inner lg:max-w-10/12 mx-auto px-4">
         <h2 class="!text-yellow-vxm">Preguntas frecuentes</h2>
-        <form action="searchFaqs" class="max-w-3/12">
+        <form action="searchFaqs" class="lg:max-w-3/12">
             <input type="text">
             <button>send</button>
         </form>
 
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <?php
             // Get FAQ categories
             $faq_categories = get_terms(array(
@@ -76,7 +76,7 @@
                             while ($faq_query->have_posts()) :
                                 $faq_query->the_post();
                             ?>
-                                <div class="faq-acordeon mb-6">
+                                <div class="faq-acordeon mb-6 overflow-hidden">
                                     <div class="faq-touch transition-all flex flex-row gap-3 border-b border-yellow-vxm-30">
                                         <iconify-icon class="!text-yellow-vxm transition-all" icon="iconamoon:arrow-down-2" width="24" height="24"></iconify-icon>
                                         <p class="text-white-vxm !mb-1"><?php the_title(); ?></p>

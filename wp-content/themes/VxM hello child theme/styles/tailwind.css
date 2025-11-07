@@ -32,7 +32,7 @@
     @apply grid grid-cols-1 gap-7 md:grid-cols-3 lg:gap-14 mx-auto my-5 max-w-10/12;
   
     .cat-card {
-      @apply min-h-60 lg:min-w-[300px] lg:min-h-[300px] lg:max-w-[300px] lg:max-h-[300px] w-full h-full;
+      @apply  min-w-[300px] min-h-[300px] max-w-[300px] max-h-[300px] w-full h-full;
       position: relative;
       overflow: hidden;
       transition: transform 0.3s ease;

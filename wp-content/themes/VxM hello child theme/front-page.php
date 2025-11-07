@@ -53,6 +53,7 @@ $product_categories = get_terms(array(
 		<div class="categories-grid">
 			<?php
 			foreach ($product_categories as $category) :
+				if ($category->slug === 'sin-categorizar') continue;
 				$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
 				$image_url = $thumbnail_id ? wp_get_attachment_image_src($thumbnail_id, 'medium')[0] : '';
 				$alt_text = $category->name;
@@ -110,24 +111,24 @@ $product_categories = get_terms(array(
 		<div class="swiper-scrollbar"></div>
 	</div>
 </section>
-<section id="servicios" class="min-h-[80dvh] flex relative">
+<section id="servicios" class="min-h-[80dvh] flex relative overflow-hidden">
 	<div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-		<h2 class="m-auto !text-[250px] h-fit opacity-35">Servicios</h2>
+		<h2 class="m-auto text-[88px] lg:!text-[250px] h-fit opacity-35">Servicios</h2>
 	</div>
 	<article class=" md:max-w-8/12 mx-auto md:w-1/2">
 		<div class="p-6 services-card">
 			<h4 class="text-center !font-bold">Diseño</h4>
-			<p>Diseñamos soluciones en vidrio y aluminio,
-				equilibrando estética y funcionalidad. Fachadas y ventanas para residencias
-				y comercios.</p>
+			<p>Creamos soluciones en vidrio y aluminio que armonizan estética y funcionalidad. Diseñamos fachadas y ventanas para residencias y espacios comerciales, cuidando cada detalle para lograr ambientes luminosos, modernos y eficientes.</p>
 		</div>
 		<div class="p-6 services-card">
 			<h4 class="text-center !font-bold">Fabricación</h4>
-			<p>Fabricamos vidrio templado y aluminio con precisión. Cerramientos y puertas para residencias e instituciones.</p>
+			<p>Productos en vidrio templado y estructuras de aluminio con precisión técnica y altos estándares de calidad. Nuestros cerramientos y puertas están pensados para residencias e instituciones que valoran durabilidad, diseño y seguridad.
+			</p>
 		</div>
 		<div class="p-6 services-card">
 			<h4 class="text-center !font-bold">Instalación</h4>
-			<p>Instalamos ventanas y fachadas, garantizando seguridad y cumplimiento. Resultados confiables.</p>
+			<p>Instalamos ventanas y fachadas con compromiso. Garantizamos seguridad estructural, cumplimiento normativo y resultados confiables que perduran en el tiempo.
+			</p>
 		</div>
 	</article>
 </section>
@@ -135,7 +136,7 @@ $product_categories = get_terms(array(
 	<div class="conteiner px-4 lg:max-w-10/12 mx-auto">
 		<h2>Nuestros clientes</h2>
 		<article id="Testimonios" class="relative">
-			<div class="vxm-google-testimonies absolute right-0 top-0 bg-white rounded-lg shadow-md p-4">
+			<div class="vxm-google-testimonies relative mb-6 lg:mb-0 lg:absolute right-0 top-0 bg-white rounded-lg shadow-md p-4">
 				<div class="info flex flex-row gap-2 items-center justify-center">
 					<h4>4.5</h4>
 					<div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
@@ -191,24 +192,24 @@ $product_categories = get_terms(array(
 			<div class="swiper-pagination-testimonios"></div>
 			<div class="cliente-satisfechos mt-12">
 				<h3>Clientes Satisfechos</h3>
-				<div class="clientes-satisfechos__content flex flex-row justify-around">
-					<div class="clientes-satisfechos__content__item flex flex-row gap-3">
-						<h4>100+</h4>
+				<div class="clientes-satisfechos__content flex flex-row justify-around flex-wrap">
+					<div class="clientes-satisfechos__content__item flex flex-col lg:flex-row gap-3">
+						<h4 class="!mb-0">100+</h4>
 						<p class="!mt-auto">Clientes</p>
 					</div>
-					<div class="clientes-satisfechos__content__item flex flex-row gap-3">
-						<h4>200+</h4>
+					<div class="clientes-satisfechos__content__item flex flex-col lg:flex-row gap-3">
+						<h4 class="!mb-0">200+</h4>
 						<p class="!mt-auto">Proyectos</p>
 					</div>
-					<div class="clientes-satisfechos__content__item flex flex-row gap-3">
-						<h4>25+</h4>
+					<div class="clientes-satisfechos__content__item flex flex-col lg:flex-row gap-3">
+						<h4 class="!mb-0">25+</h4>
 						<p class="!mt-auto">Años de experiencia</p>
 					</div>
 				</div>
 		</article>
 	</div>
-	<div class="clientes-conteiner mt-6 px-4 overflow-visible">
-		<div class="swiper swiper-clients">
+	<div class="clientes-conteiner mt-6 overflow-visible">
+		<div class="swiper swiper-clients !px-4">
 			<div class="swiper-wrapper">
 				<?php
 				// Query all published clients
