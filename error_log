@@ -1,0 +1,17 @@
+[24-Nov-2025 15:10:45 UTC] PHP Fatal error:  Uncaught WpOrg\Requests\Exception\Http\Status403: 403 Forbidden in /home/vidriosxmetro/test.vidriosxmetro/wp-content/plugins/elementor/modules/cloud-library/module.php:187
+Stack trace:
+#0 /home/vidriosxmetro/test.vidriosxmetro/wp-content/plugins/elementor/modules/cloud-library/module.php(54): Elementor\Modules\CloudLibrary\Module->is_screenshot_proxy_mode()
+#1 /home/vidriosxmetro/test.vidriosxmetro/wp-content/plugins/elementor/core/base/module.php(86): Elementor\Modules\CloudLibrary\Module->__construct()
+#2 /home/vidriosxmetro/test.vidriosxmetro/wp-content/plugins/elementor/core/modules-manager.php(64): Elementor\Core\Base\Module::instance()
+#3 /home/vidriosxmetro/test.vidriosxmetro/wp-content/plugins/elementor/includes/plugin.php(742): Elementor\Core\Modules_Manager->__construct()
+#4 /home/vidriosxmetro/test.vidriosxmetro/wp-content/plugins/elementor/includes/plugin.php(660): Elementor\Plugin->init_components()
+#5 /home/vidriosxmetro/test.vidriosxmetro/wp-includes/class-wp-hook.php(324): Elementor\Plugin->init()
+#6 /home/vidriosxmetro/test.vidriosxmetro/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#7 /home/vidriosxmetro/test.vidriosxmetro/wp-includes/plugin.php(517): WP_Hook->do_action()
+#8 /home/vidriosxmetro/test.vidriosxmetro/wp-settings.php(727): do_action()
+#9 /home/vidriosxmetro/test.vidriosxmetro/wp-config.php(104): require_once('/home/vidriosxm...')
+#10 /home/vidriosxmetro/test.vidriosxmetro/wp-load.php(50): require_once('/home/vidriosxm...')
+#11 /home/vidriosxmetro/test.vidriosxmetro/wp-blog-header.php(13): require_once('/home/vidriosxm...')
+#12 /home/vidriosxmetro/test.vidriosxmetro/index.php(17): require('/home/vidriosxm...')
+#13 {main}
+  thrown in /home/vidriosxmetro/test.vidriosxmetro/wp-content/plugins/elementor/modules/cloud-library/module.php on line 187

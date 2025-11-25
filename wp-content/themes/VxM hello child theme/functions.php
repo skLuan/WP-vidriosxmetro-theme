@@ -5,6 +5,43 @@ include_once get_stylesheet_directory() . '/inc/cpt-and-taxonomies.php';
  * Functions.php del Child Theme de Hello Elementor
  * Versión consolidada y actualizada: Incluye WooCommerce para productos y taxonomías bidireccionales.
  */
+/**
+ * Theme setup and configuration
+ */
+add_action('after_setup_theme', 'vxm_theme_setup');
+function vxm_theme_setup() {
+    // Add theme support for various features
+    add_theme_support('post-thumbnails');
+    add_theme_support('title-tag');
+    add_theme_support('html5', array('search-form', 'comment-form', 'comment-list'));
+    add_theme_support('woocommerce');
+}
+
+//------- Upload galery media from wrodpress
+function proyectos_gallery_admin_assets( $hook ) {
+    global $post_type;
+
+    // Only on post edit / new screens for the proyectos CPT
+    if (
+        in_array( $hook, array( 'post.php', 'post-new.php' ), true )
+        && 'proyectos' === $post_type
+    ) {
+        // WordPress media APIs
+        if ( ! did_action( 'wp_enqueue_media' ) ) {
+            wp_enqueue_media();
+        }
+
+        // Your custom JS (create this file in your theme)
+        wp_enqueue_script(
+            'proyectos-gallery-admin',
+            get_stylesheet_directory_uri() . '/src/admin_proyectos_gallery.js',
+            array( 'jquery' ),
+            '1.0',
+            true
+        );
+    }
+}
+add_action( 'admin_enqueue_scripts', 'proyectos_gallery_admin_assets' );
 
 // 1. Encolar estilos del child theme (para que herede del padre y agregue custom)
 function hello_child_enqueue_styles() {
